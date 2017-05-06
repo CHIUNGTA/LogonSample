@@ -5,20 +5,21 @@
 }
 
 <h2>Logon</h2>
-@if (Model != null && !string.IsNullOrWhiteSpace(Model.Message)&& Model.Account == "skill" && Model.Password == "tree")
+@if (Model != null && !string.IsNullOrWhiteSpace(Model.Message))
 {
-    
+    if (Model.Account == "skill" && Model.Password == "tree")
+    {
     <div class="alert alert-success">
         @Model.Message
     </div>
-    
-}
-    else
-    {
+     }
+     else
+     {
      <div class="alert alert-danger">
         @Model.Message
      </div>
     }
+}
 
 @using (Html.BeginForm()) 
 {

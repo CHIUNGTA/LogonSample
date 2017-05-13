@@ -5,18 +5,19 @@
 }
 
 <h2>Logon(登入)</h2>
-@if (Model != null && !string.IsNullOrWhiteSpace(Model.Message))
+@if (Model != null @*&& !string.IsNullOrWhiteSpace(Model.Email)*@)
 {
-    if (Model.Account == "skill" && Model.Password == "tree")
+    if (Model.Account !=null && Model.Password != null)
     {
     <div class="alert alert-success">
-        @Model.Message
+        @Model.Account
     </div>
+    @Html.Action("Logoned","User");
      }
-     else
-     {
+    else
+    {
      <div class="alert alert-danger">
-        @Model.Message
+        @Model.Account
      </div>
     }
     //this test
@@ -46,13 +47,13 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
